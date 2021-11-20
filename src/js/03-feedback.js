@@ -8,7 +8,7 @@ const refs = {
 const formData = {};
 
 refs.form.addEventListener('submit', onFormSubmit);
-refs.form.addEventListener('input', throttle(onFormInput,1000));
+refs.form.addEventListener('input', throttle(onFormInput,500));
 
 
 
@@ -33,13 +33,10 @@ function populateForm() {
     const savedData = localStorage.getItem('feedback-form');
     const parsedData = JSON.parse(savedData);
    
-        if (parsedData.email) {           
-            refs.form.email.value = parsedData.email;             
-   
-    };
-    if (parsedData.message) {
-         refs.form.message.value = parsedData.message;
-    };
+        if (parsedData) {           
+            refs.form.email.value = parsedData.email;
+            refs.form.message.value = parsedData.message;
+    };  
     
 };
 
