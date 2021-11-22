@@ -33,10 +33,13 @@ function populateForm() {
     const savedData = localStorage.getItem('feedback-form');
     const parsedData = JSON.parse(savedData);
    
-        if (parsedData) {           
+        if (parsedData.email) {           
             refs.form.email.value = parsedData.email;
-            refs.form.message.value = parsedData.message;
-    };  
+            
+    };
+    if (parsedData.message) {
+        refs.form.message.value = parsedData.message;
+    };
     
 };
 
